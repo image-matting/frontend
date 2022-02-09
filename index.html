@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+  <script src="js/main.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css"/>
+  <link rel="stylesheet" href="css/style.css" type="text/css"/>
+</head>
+<body>
+<div class="center">
+  <div class="dropzone-container">
+    <div class="dropzone-item">
+      <h2>Input Image</h2>
+      <form action="http://localhost:5000/image" class="dropzone svelte-12uhhij dz-clickable" id="input-image-dropzone"></form>
+    </div>
+    <div class="dropzone-item">
+      <h2>Background Image</h2>
+      <form action="http://localhost:5000/image" class="dropzone svelte-12uhhij dz-clickable" id="background-image-dropzone"></form>
+    </div>
+    <button id="change-background-button" type="button">Change Background</button>
+  
+  </div>
+</div>
+</body>
+</html>

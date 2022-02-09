@@ -1,0 +1,52 @@
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.dropzone-container {
+    border: 1px solid red;
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-start
+}
+
+.dropzone-item {
+    border: 1px solid black;
+}
+
+.dropzone-item h2 {
+    text-align: center;
+}
+
+.dropzone {
+    width: 300px;
+    height: 300px;
+    border-width: 2px;
+    border-radius: 2px;
+    border-color: #eeeeee;
+    border-style: dashed;
+    background-color: #fafafa;
+    color: #bdbdbd;
+    outline: none;
+    transition: border .24s ease-in-out;
+    text-align: center;
+}
+
+.dropzone .dz-preview .dz-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 0;
+}
+
+.dz-image img {
+    width: 200px;
+    height: 200px;
+    border-radius: 0;
+}
+
+#change-background-button {
+    height: 50px;
+    width: 20%;
+}
