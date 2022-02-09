@@ -4,16 +4,11 @@
 }
 
 .dropzone-container {
-    border: 1px solid red;
     display: inline-flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: flex-start;
     align-content: flex-start
-}
-
-.dropzone-item {
-    border: 1px solid black;
 }
 
 .dropzone-item h2 {
@@ -47,6 +42,12 @@
 }
 
 #change-background-button {
+    margin-top: 10px;
     height: 50px;
-    width: 20%;
+    width: 81.5%;
+    cursor: pointer;
+}
+
+.dz-progress {
+    display: none !important;
 }

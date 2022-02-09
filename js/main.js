@@ -1,10 +1,13 @@
+const API_URL = "http://localhost:5000/upload"
+
 Dropzone.options.inputImageDropzone = {
-    paramName: "input_image",
     maxFilesize: 100,
     maxThumbnailFilesize: 100,
     maxFiles: 1,
-    thumbnailWidth: 400,
-    thumbnailHeight: 400,
+    thumbnailWidth: 250,
+    thumbnailHeight: 250,
+    autoProcessQueue: false,
+    uploadProgress: 'totaluploadprogress',
     init: function () {
         this.on('addedfile', function (file) {
             if (this.files.length > 1) {
@@ -12,15 +15,16 @@ Dropzone.options.inputImageDropzone = {
             }
         });
     }
-}
+};
 
 Dropzone.options.backgroundImageDropzone = {
-    paramName: "background_image",
     maxFilesize: 100,
     maxThumbnailFilesize: 100,
     maxFiles: 1,
-    thumbnailWidth: 400,
-    thumbnailHeight: 400,
+    thumbnailWidth: 250,
+    thumbnailHeight: 250,
+    autoProcessQueue: false,
+    uploadProgress: 'totaluploadprogress',
     init: function () {
         this.on('addedfile', function (file) {
             if (this.files.length > 1) {
@@ -28,4 +32,37 @@ Dropzone.options.backgroundImageDropzone = {
             }
         });
     }
+};
+
+function changeBackground() {
+    const inputImageDropzone = document.getElementById("input-image-dropzone").dropzone;
+    const inputImageFile = inputImageDropzone.getAcceptedFiles()[0];
+    if (inputImageFile == null) {
+        console.log("Please enter an input image!")
+    }
+
+    const backgroundImageDropzone = document.getElementById("background-image-dropzone").dropzone;
+    const backgroundImageFile = backgroundImageDropzone.getAcceptedFiles()[0];
+    if (backgroundImageFile == null) {
+        console.log("Please enter a background image!")
+    }
+
+    const formData = new FormData();
+    formData.append('action', 'uploadImages');
+    formData.append('input_image', inputImageFile);
+    formData.append('background_image', backgroundImageFile);
+
+    $.ajax({
+        url: API_URL,
+        type: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (data) {
+            console.log("Successfully sent the files!")
+        }
+    });
+
+    inputImageDropzone.removeAllFiles();
+    backgroundImageDropzone.removeAllFiles();
 }
